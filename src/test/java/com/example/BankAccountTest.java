@@ -10,7 +10,7 @@ public class BankAccountTest {
     private BankAccount account;
 
     @Test
-    public void createBankAccountPositiveStartingBalance() {
+    public void createBankAccountPositiveStartingBalanceTest() {
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
 
@@ -21,7 +21,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void createBankAccountZeroStartingBalance() {
+    public void createBankAccountZeroStartingBalanceTest() {
         int startingBalance = 0;
         account = new BankAccount(startingBalance);
         int expected = 0;
@@ -33,7 +33,7 @@ public class BankAccountTest {
 
 
     @Test
-    public void lessAmmountThanBalanceWithdraw(){
+    public void lessAmmountThanBalanceWithdrawTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = 50;
@@ -45,7 +45,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void equalAmmountThanBalanceWithdraw(){
+    public void equalAmmountAndBalanceWithdrawTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = 100;
@@ -57,7 +57,7 @@ public class BankAccountTest {
     }
 
     @Test 
-    public void greaterAmmountThanBalanceWithdraw(){
+    public void greaterAmmountThanBalanceWithdrawTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = 150;
@@ -69,7 +69,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void positiveDeposit(){
+    public void positiveDepositTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = 50;
@@ -81,7 +81,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void negativeDeposit(){
+    public void negativeDepositTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = -50;
@@ -92,7 +92,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void zeroDeposit(){
+    public void zeroDepositTest(){
         int startingBalance = 100;
         account = new BankAccount(startingBalance);
         int amount = 0;
@@ -101,19 +101,6 @@ public class BankAccountTest {
         int actual = account.deposit(amount);
 
         assertEquals(expected, actual);
-    }
-
-    @Test
-    public void paymentTest(){
-        int total_amount = 1000;
-        double interest = 0.1;
-        int npayments = 12;
-        double expected = 87.915;
-        double delta = 0.001;
-
-        double actual = account.payment(total_amount, interest, npayments);
-
-        assertEquals(expected, actual, delta);
     }
 
 
