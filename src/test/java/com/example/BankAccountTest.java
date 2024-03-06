@@ -103,6 +103,48 @@ public class BankAccountTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void paymentTest() {
+        int startingBalance = 100;
+        account = new BankAccount(startingBalance);
+        double totalAmount = 1000.0;
+        double interest = 0.05;
+        int nPayments = 12;
+        double expected = 112.82;
 
+        double actual = account.payment(totalAmount, interest, nPayments);
 
+        assertEquals(expected, actual, 0.01);
+    }
+
+    @Test
+    public void pendingZeroMonthTest() {
+        int startingBalance = 100;
+        account = new BankAccount(startingBalance);
+        double amount = 1000.0;
+        double interest = 0.05;
+        int nPayments = 12;
+        int month = 0;
+        double expected = 1000.0;
+
+        double actual = account.pending(amount, interest, nPayments, month);
+
+        assertEquals(expected, actual, 0.01);
+    }
+
+    @Test
+    public void pendingFirstMonthTest() {
+        int startingBalance = 100;
+        account = new BankAccount(startingBalance);
+        double amount = 1000.0;
+        double interest = 0.05;
+        int nPayments = 12;
+        int month = 1;
+        double expected = 937.17;
+
+        double actual = account.pending(amount, interest, nPayments, month);
+
+        assertEquals(expected, actual, 0.01);
+    }
 }
+
